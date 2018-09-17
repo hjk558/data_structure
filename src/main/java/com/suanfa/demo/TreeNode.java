@@ -7,5 +7,4 @@ public class TreeNode {
     private int root;
     private TreeNode left;
     private TreeNode right;
-
 }

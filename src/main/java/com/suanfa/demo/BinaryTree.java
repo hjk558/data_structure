@@ -74,12 +74,14 @@ public class BinaryTree {
             if (!treeNodes.empty()) {
                 node = treeNodes.peek();
                 TreeNode rightNode = node.getRight();
-                if(rightNode == null || rightNode.getRoot()==lastVisit.getRoot()){
+                if (rightNode == null || rightNode == lastVisit) {
                     node = treeNodes.pop();
                     lastVisit = node;
                     System.out.print(node.getRoot());
+                    node = null;
+                } else {
+                    node = rightNode;
                 }
-                node = rightNode;
             }
         }
     }
