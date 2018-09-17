@@ -1,5 +1,6 @@
 package com.suanfa.demo;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class BinaryTree {
@@ -86,6 +87,24 @@ public class BinaryTree {
         }
     }
 
+    /**
+     * 层次遍历
+     */
+    public static void hierTraversal(TreeNode root) {
+        LinkedList<TreeNode> treeNodes = new LinkedList<>();
+        treeNodes.add(root);
+        while (!treeNodes.isEmpty()) {
+            TreeNode node = treeNodes.removeFirst();
+            System.out.print(node.getRoot());
+            if (node.getLeft() != null) {
+                treeNodes.add(node.getLeft());
+            }
+            if (node.getRight() != null) {
+                treeNodes.add(node.getRight());
+            }
+        }
+    }
+
     public static void main(String[] args) {
         TreeNode node1 = new TreeNode();
         TreeNode node2 = new TreeNode();
@@ -116,7 +135,8 @@ public class BinaryTree {
         //recursionPreorderTraversal(node1);
         // preorderTraversal(node1);
         //inorderTraversal(node1);
-        postTraversal(node1);
+        //postTraversal(node1);
+        hierTraversal(node1);
     }
 
 }
