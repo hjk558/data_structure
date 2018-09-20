@@ -1,7 +1,6 @@
 package com.suanfa.demo;
 
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 public class BinaryTree {
 
@@ -47,11 +46,10 @@ public class BinaryTree {
         Stack<TreeNode> treeNodes = new Stack<>();
         TreeNode node = root;
         while (node != null || !treeNodes.empty()) {
-            while (node != null) {
+            if (node != null) {
                 treeNodes.push(node);
                 node = node.getLeft();
-            }
-            if (!treeNodes.empty()) {
+            } else{
                 node = treeNodes.pop();
                 System.out.print(node.getRoot());
                 node = node.getRight();
@@ -60,7 +58,7 @@ public class BinaryTree {
     }
 
     /**
-     * 后续遍历
+     * 后续遍历1
      */
 
     public static void postTraversal(TreeNode root) {
@@ -84,6 +82,30 @@ public class BinaryTree {
                     node = rightNode;
                 }
             }
+        }
+    }
+
+    /**
+     * 后序遍历2
+     * 通过反向存储右节点,用一个中间栈将遍历的节点存储
+     * 核心思想:反向存储
+     */
+    public static void reverPostTraversal(TreeNode root) {
+        Stack<TreeNode> treeNodes = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode node = root;
+        while (node != null || !treeNodes.empty()) {
+            if (node != null) {
+                treeNodes.push(node);
+                stack.push(node);
+                node = node.getRight();
+            } else{
+                node = treeNodes.pop();
+                node = node.getLeft();
+            }
+        }
+        while (!stack.empty()) {
+            System.out.print(stack.pop().getRoot());
         }
     }
 
@@ -134,9 +156,10 @@ public class BinaryTree {
         node9.setRoot(9);
         //recursionPreorderTraversal(node1);
         // preorderTraversal(node1);
-        //inorderTraversal(node1);
+        inorderTraversal(node1);
         //postTraversal(node1);
-        hierTraversal(node1);
+        //hierTraversal(node1);
+        //reverPostTraversal(node1);
     }
 
 }
