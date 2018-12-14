@@ -16,6 +16,7 @@ public class ChainTest {
 
             List<String> strings = chainTest.parseSuffixExpression(midSuffix);
             chainTest.computeSuffixExpression(strings);
+            String ss = "1";
             String st = "";
         } catch (Exception e) {
             e.printStackTrace();
