@@ -8,6 +8,9 @@ public class ChainTest {
 
     public static void main(String[] args) {
         try {
+            int a =1;
+            int b =2;
+            int c = 3;
             String midSuffix = "(8+9)-3+5/4+3*4";//
             ChainTest chainTest = new ChainTest();
             List<String> strings = chainTest.parseSuffixExpression(midSuffix);
