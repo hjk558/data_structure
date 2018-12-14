@@ -10,6 +10,7 @@ public class ChainTest {
         try {
             String midSuffix = "(8+9)-3+5/4+3*4";//
             ChainTest chainTest = new ChainTest();
+
             List<String> strings = chainTest.parseSuffixExpression(midSuffix);
             chainTest.computeSuffixExpression(strings);
             String st = "";
