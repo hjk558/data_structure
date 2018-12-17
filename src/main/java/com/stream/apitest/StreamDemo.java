@@ -1,22 +1,17 @@
 package com.stream.apitest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class StreamDemo {
-    public static void main(String[] args) {
-        List<Students>list =  new ArrayList(){{
-            add(new Students(1, "a"));
-            add(new Students(2, "b"));
-            add(new Students(3, "c"));
-        }};
-        Students optional = list.stream().filter(f -> f.getId() > 4).findFirst().orElseThrow(RuntimeException::new);
-        System.out.println(optional.getId());
-        List<String> strings = Arrays.asList("1,2,3", "a,b,c", "I,II,III");
-        String collect = strings.stream().map(f -> f.split(",")).flatMap(Arrays::stream).collect(Collectors.joining());
-    }
+//    public static void main(String[] args) {
+//        List<Students>list =  new ArrayList(){{
+//            add(new Students(1, "a"));
+//            add(new Students(2, "b"));
+//            add(new Students(3, "c"));
+//        }};
+//        Students optional = list.stream().filter(f -> f.getId() > 4).findFirst().orElseThrow(RuntimeException::new);
+//        System.out.println(optional.getId());
+//        List<String> strings = Arrays.asList("1,2,3", "a,b,c", "I,II,III");
+//        String collect = strings.stream().map(f -> f.split(",")).flatMap(Arrays::stream).collect(Collectors.joining());
+//    }
 }
 
 class Students {
